@@ -1,0 +1,60 @@
+<!--
+  Generated template for the TopbarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar *ngIf="isshow" style="min-height:auto" placeholder="输入视频名称/关键词" debounce="500">
+    </ion-searchbar>
+    <ion-buttons right>
+      <button (click)="filter()" ion-button clear color="primary" [disabled]="subjects?.length < 3">
+        筛选
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border>
+    <div class="swiper-container" id="swiper-nav" *ngIf='subjects?.length'>
+      <div class="swiper-wrapper" id="nav">
+        <div [ngClass]="{'swiper-slide': true, 'swiper-nav-active': i == navIndex}"
+          *ngFor='let item of subjects, let i = index' (click)="goSubject(i)">{{item?.typeName}}</div>
+      </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content *ngIf="subjects.length == 0">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <loading mess="暂无数据" [status]="status"></loading>
+</ion-content>
+
+<ion-footer style="display: unset;position: unset;height: unset;width: unset;" *ngIf="itemsData.length>0">
+  <div class="swiper-container" id="swiper">
+    <div class="swiper-wrapper">
+
+      <ion-content class="swiper-slide" *ngFor='let item of subjects, let i = index'>
+        <ion-refresher (ionRefresh)="patchItemsByIndex(i, $event)">
+          <ion-refresher-content>
+          </ion-refresher-content>
+        </ion-refresher>
+        <loading mess="暂无数据" [status]="itemsData[i]" *ngIf="!itemsData[i] else entry"></loading>
+        <ng-template #entry>
+          <ion-list>
+            <ion-item *ngFor="let subItem of itemsData[i]">{{ subItem }}</ion-item>
+          </ion-list>
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </ng-template>
+      </ion-content>
+
+    </div>
+  </div>
+</ion-footer>

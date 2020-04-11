@@ -1,0 +1,27 @@
+<!--
+  Generated template for the VideotypePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>分类</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="middle"></div>
+  <div class="item-box" *ngFor="let item of data, let i = index">
+    <p class="title">{{ item.typeName }}</p>
+    <div class="subtitle">
+      <span [ngClass]="{active: i == fIndex && j == sIndex}" *ngFor="let subItem of item.secondType, let j = index" (click)="filter(i,j)">
+        {{ subItem.typeName }}
+      </span>
+    </div>
+  </div>
+
+</ion-content>

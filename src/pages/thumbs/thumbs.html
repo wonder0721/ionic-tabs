@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ThumbsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>thumbs</ion-title>
+    <ion-buttons right>
+      <button (click)="filter()" ion-button clear color="primary" [disabled]="subjects?.length==0">
+        筛选
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border>
+    <div class="swiper-container" id="swiper-nav" *ngIf='subjects?.length'>
+      <div class="swiper-wrapper" id="nav">
+        <div class="swiper-slide"
+          *ngFor='let item of subjects, let i = index'>{{item}}</div>
+      </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-footer style="display: unset;position: unset;height: unset;width: unset;">
+  <ion-content *ngIf="itemsData.length == 0">
+    <loading mess="暂无数据" [status]="itemsData[1]"></loading>
+  </ion-content>
+  <div class="swiper-container" id="swiper" *ngIf="itemsData.length>0">
+    <div class="swiper-wrapper">
+      <ion-content class="swiper-slide" *ngFor='let item of itemsData, let i = index'>
+        <ion-refresher (ionRefresh)="patchItemsByIndex(i, $event)">
+          <ion-refresher-content>
+          </ion-refresher-content>
+        </ion-refresher>
+        <loading mess="暂无数据" [status]="item" *ngIf="!item else entry"></loading>
+        <ng-template #entry>
+          <ion-list>
+            <ion-item *ngFor="let data of [1,2,3,4,5,6,7,8,9]">{{item}}</ion-item>
+          </ion-list>
+        </ng-template>
+      </ion-content>
+    </div>
+  </div>
+</ion-footer>

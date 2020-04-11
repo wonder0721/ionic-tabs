@@ -1,0 +1,21 @@
+foldpanel {
+  .panel-content {
+    font-size: 14px;
+    color: #222;
+    line-height: 20px;
+    
+    .btn {
+      color: #38acff;
+      display: inline-block;
+      background-color: #eee;
+      line-height: 20px;
+      height: 20px;
+      font-size: 14px;
+      vertical-align: baseline;
+      i {
+        color: #222;
+        font-style: normal;
+      }
+    }
+  }
+}

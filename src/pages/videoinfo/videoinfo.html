@@ -1,0 +1,72 @@
+<!--
+  Generated template for the VideoinfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>videoinfo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-footer class="mainArea">
+
+  <!-- video区域 -->
+  <div class="video-box"></div>
+
+  <!-- tabbar -->
+  <div class="videoNavbar">
+    <span (click)="toInfo()" [ngClass]="{active: active}">评论</span>
+    <span (click)="toCommets()" [ngClass]="{active: !active}">简介</span>
+    <span class="bottomline" [ngStyle]="lineStyle"></span>
+  </div>
+
+  <!-- 轮播图 -->
+  <div class="swiper-container" id="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- 视频详情 -->
+      <ion-content class="swiper-slide infoswiper">
+        <ion-row style="height: 100%; font-size: 16px;" align-items-center>
+          <ion-col>暂无评论</ion-col>
+        </ion-row>
+      </ion-content>
+
+      <!-- 评论 -->
+      <ion-content class="swiper-slide commetswiper">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+        <div class="intro-box">
+          <foldpanel [text]="text" line=2 [canBack]="canback"></foldpanel>
+          <foldpanel [text]="text" line=2 [canBack]="canback"></foldpanel>
+          <foldpanel [text]="text" line=2 [canBack]="canback"></foldpanel>
+          <foldpanel [text]="text" line=2 [canBack]="canback"></foldpanel>
+          <foldpanel [text]="text" line=2 [canBack]="canback"></foldpanel>
+        </div>
+        <ion-infinite-scroll>
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-content>
+    </div>
+
+  </div>
+
+</ion-footer>
+
+<ion-footer *ngIf="showFooter" no-border>
+  <ion-toolbar>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-input placeholder="快来评论互动吧"></ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button color="primary" block>发送</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

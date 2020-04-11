@@ -1,0 +1,32 @@
+page-home {
+  .scroll-content {
+    padding: 12px;
+    background-color: #fff;
+  }
+  .intro-content {
+    position: relative;
+    font-size: 14px;
+    color: #222;
+    line-height: 20px;
+
+    // 最多展示两行
+    // overflow: hidden;
+    // text-overflow: "aaaaaaaa";
+    // display: -webkit-box;
+    // -webkit-line-clamp: 3;
+    // -webkit-box-orient: vertical;
+    .btn {
+      color: #38ACFF;
+      display: inline-block;
+      background-color: #eee;
+      line-height: 20px;
+      height: 20px;
+      font-size: 14px;
+      vertical-align: baseline;
+      i{
+        color: #222;
+        font-style: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+page-swiper {
+  .content {
+    background-color: #F2F3F4;
+  }
+  .segment-md .segment-button{
+      height: 38px;
+  }
+  .swiper-container{
+    // padding: $toolbar-ios-height 0; 
+    padding: $toolbar-ios-height + 40 0 0;
+    background-color: #f00;
+  }
+}

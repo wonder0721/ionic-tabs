@@ -1,0 +1,86 @@
+page-videoinfo {
+  .mainArea {
+    position: absolute;
+    margin-top: $toolbar-ios-height;
+    height: calc(100% - #{$toolbar-ios-height});
+    .video-box {
+      height: 55vw;
+      width: 100%;
+      background-color: #000;
+    }
+    .videoNavbar {
+      height: 40px;
+      font-size: 16px;
+      display: flex;
+      position: relative;
+      z-index: 999;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      & > span:not(:last-child) {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      & > span:last-child {
+        position: absolute;
+        bottom: 0;
+        width: 30px;
+        left: calc(25vw - 15px);
+        display: block;
+        height: 2px;
+        background-color: rgb(240, 121, 194);
+      }
+    }
+    .swiper-container {
+      width: 100%;
+      height: calc(100% - 55vw - 40px);
+      background-color: #F6F6F6;
+      .infoswiper {
+        background-color: #fff;
+        .scroll-content {
+          bottom: 52px;
+          background-color: #fff;
+        }
+      }
+      .commetswiper {
+        background-color: #F6F6F6;
+        text-align: left;
+        .scroll-content {
+          background-color: #fff;
+          padding: 16px;
+          .intro-box {
+            padding: 7px;
+            background-color: #eee;
+          }
+        }
+      }
+      .swiper-slide {
+        display: block;
+      }
+    }
+  }
+
+  .active {
+    color: rgb(240, 121, 194);
+  }
+  .text-input-ios {
+    margin: 0;
+    height: 41px;
+    border-radius: 18px;
+    background-color: #f6f6f6;
+    padding: 2px 15px;
+  }
+  .col {
+    padding: 0;
+    padding-left: 10px;
+  }
+  [col-2] {
+    padding: 0;
+    padding-right: 10px;
+  }
+  .button-ios {
+    height: 2.5em;
+    font-size: 14px;
+  }
+}

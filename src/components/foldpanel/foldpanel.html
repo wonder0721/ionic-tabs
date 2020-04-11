@@ -1,0 +1,4 @@
+<!-- Generated template for the FoldpanelComponent component -->
+<div class="panel-content" #intro id="intro" [ngStyle]="textStyle">
+  {{showTotal?text:foldContent}}<span class="btn" *ngIf="showbtn" (click)="changeStatus()"><i *ngIf="!showTotal">...</i>{{showTotal?'<<收起':'&emsp;展开'}}</span>
+</div>

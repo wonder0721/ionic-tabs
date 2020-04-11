@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用swiper做导航栏</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script type="text/javascript" src="js/jQuery.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <style>
+        .swiper-container{
+            width: 300px;
+            height: 50px;
+            border: 1px solid #999999;
+        }
+        .swiper-slide{
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+        }
+        .active{
+            color: #eb4610;
+        }
+    </style>
+</head>
+<body>
+    <section class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide active">标题一</div>
+            <div class="swiper-slide">标题二</div>
+            <div class="swiper-slide">标题三</div>
+            <div class="swiper-slide">标题四</div>
+            <div class="swiper-slide">标题五</div>
+            <div class="swiper-slide">标题六</div>
+            <div class="swiper-slide">标题七</div>
+            <div class="swiper-slide">标题八</div>
+            <div class="swiper-slide">标题九</div>
+            <div class="swiper-slide">标题十</div>
+            <div class="swiper-slide">标题十一</div>
+            <div class="swiper-slide">标题十二</div>
+            <div class="swiper-slide">标题十三</div>
+            <div class="swiper-slide">标题十四</div>
+        </div>
+    </section>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5,
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.swiper-container>.swiper-wrapper>.swiper-slide').click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
