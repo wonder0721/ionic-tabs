@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ThemeableBrowser } from '@ionic-native/themeable-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    ThemeableBrowser,
+    InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

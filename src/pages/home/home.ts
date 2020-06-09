@@ -62,7 +62,7 @@ export class HomePage {
         this.goPage('NavcontrolPage');
         break;
       case 6:
-        this.goPage('TopbarPage');
+        this.goPage('BrowserPage');
         break;
       default:
         console.log('go')
